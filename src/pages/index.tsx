@@ -1,8 +1,10 @@
-import type { NextPage } from 'next'
+import axios from 'axios';
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import Header from '../components/Header'
+import Header from '../components/Header/Header';
 
-const Home: NextPage = () => {
+const Home: NextPage = ( products: any ) => {
+
   return (
     <div >
       <Head>
@@ -12,20 +14,26 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Header>
-          <span>WINE</span>
-          <nav>
-            <span>Clube</span>
-            <span>Loja</span>
-            <span>Produtores</span>
-            <span>Ofertas</span>
-            <span>Eventos</span>
-          </nav>
-          <span>Icons de pesquisa e perfil</span>
-        </Header>
+        <Header />
+        <h1>Refine sua busca</h1>
+        {products.products.items.map((product: any) => (
+          <h1 key={ product.id }>{ product.name }</h1>
+        ))}
       </main>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await axios.get('https://wine-back-test.herokuapp.com/products?page=1&limit=12');
+
+  const products = await response.data;
+  
+  return {
+    props: {
+      products
+    }
+  }
 }
 
 export default Home

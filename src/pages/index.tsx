@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header/Header';
+import SearchPrice from '../components/Search/SearchPrice';
 
 const Home: NextPage = ( products: any ) => {
 
@@ -15,7 +16,11 @@ const Home: NextPage = ( products: any ) => {
 
       <main>
         <Header />
-        <h1>Refine sua busca</h1>
+        <div>
+          <h1>Refine sua busca</h1>
+          <SearchPrice />
+        </div>
+
         {products.products.items.map((product: any) => (
           <h1 key={ product.id }>{ product.name }</h1>
         ))}

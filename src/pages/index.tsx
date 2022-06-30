@@ -12,7 +12,17 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Header>Hello World</Header>
+        <Header>
+          <span>WINE</span>
+          <nav>
+            <span>Clube</span>
+            <span>Loja</span>
+            <span>Produtores</span>
+            <span>Ofertas</span>
+            <span>Eventos</span>
+          </nav>
+          <span>Icons de pesquisa e perfil</span>
+        </Header>
       </main>
     </div>
   )

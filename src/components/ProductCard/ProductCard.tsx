@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import DiscountTag from '../../styles/Discount';
 import PriceFullTag from '../../styles/PriceFullTag';
+import PriceNonMember from '../../styles/PriceNonMember';
 import CardStyled from './ProductCardStyled';
 
 interface IProductCard {
@@ -23,12 +24,10 @@ export default function ProductCard({
         <DiscountTag>{ `${discount}% OFF` }</DiscountTag>
       </div>
       <div>
-        <span>SÓCIO WINE </span>
-        <span>{ `R$${priceMember}` }</span>
+        <span>{ `SÓCIO WINE R$${priceMember}` }</span>
       </div>
       <div>
-        <span>NÃO SÓCIO </span>
-        <span>{ `R$${priceNonMember}` }</span>
+        <PriceNonMember>{ `NÃO SÓCIO R$${priceNonMember}` }</PriceNonMember>
       </div>
     </CardStyled>
   )

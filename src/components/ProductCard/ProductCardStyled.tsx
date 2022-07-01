@@ -15,6 +15,8 @@ const CardStyled = styled.div`
     font-style: normal;
     font-weight: 700;
     line-height: 19px;
+    margin-left: 9.73px;
+    margin-right: 13.63px;
     letter-spacing: -0.22px;
     text-align: center;
     color: #1D1D1B;

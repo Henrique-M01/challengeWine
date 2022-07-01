@@ -9,6 +9,7 @@ import { IProducts } from '../interfaces/IProducts';
 import CatalogContainer from '../styles/CatalogContainer';
 import Main from '../styles/Main';
 import SearchContainer from '../styles/SearchContainer';
+import TotalItems from '../styles/TotalItems';
 
 const Home: NextPage<IProducts> = ( { products } ) => {
   return (
@@ -22,11 +23,11 @@ const Home: NextPage<IProducts> = ( { products } ) => {
       <Header />
       <Main>
         <SearchContainer>
-          <h1>Refine sua busca</h1>
+          <h4>Refine sua busca</h4>
           <SearchPrice />
         </SearchContainer>
+        <TotalItems>{ `${products.totalItems} produtos encontrados` }</TotalItems>
         <CatalogContainer>
-          <span>{ `${products.totalItems} produtos encontrados` }</span>
           {products.items.map((product) => (
             <div key={product.id}>
               <ProductCard

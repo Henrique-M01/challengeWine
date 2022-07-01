@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const SearchContainer = styled.div`
   background-color: #F5F5F5;
 
-  h1 {
+  h4 {
     width: 256px;
     height: 24px;
     margin-left: 75px;

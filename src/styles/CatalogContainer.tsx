@@ -6,7 +6,7 @@ const CatalogContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 100px;
-  padding-right: 80px;
+  padding-right: 150px;
 `;
 
 export default CatalogContainer;

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import DiscountTag from '../../styles/Discount';
 import CardStyled from './ProductCardStyled';
 
 interface IProductCard {
@@ -18,7 +19,7 @@ export default function ProductCard({
       <h1>{ name }</h1>
       <div>
         <span>{ `R$${price}` }</span>
-        <span>{ `${discount}% OFF` }</span>
+        <DiscountTag>{ `${discount}% OFF` }</DiscountTag>
       </div>
       <div>
         <span>SÓCIO WINE</span>

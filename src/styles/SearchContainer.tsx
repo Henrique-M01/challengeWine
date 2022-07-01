@@ -17,6 +17,15 @@ const SearchContainer = styled.div`
     line-height: 24px;
     color: #000000;
   }
+
+  @media screen and (max-width: 1060px) {
+    padding-left: 0px;
+    width: 240px;
+
+    h4 {
+      margin-left: 30px;
+    }
+  }
 `;
 
 export default SearchContainer;

@@ -7,6 +7,10 @@ const CatalogContainer = styled.div`
   justify-content: space-between;
   padding-top: 100px;
   padding-right: 150px;
+
+  @media screen and (max-width: 1060px) {
+    padding-right: 90px;
+  }
 `;
 
 export default CatalogContainer;

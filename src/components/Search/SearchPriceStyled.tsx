@@ -26,6 +26,11 @@ const SearchPriceStyled = styled.div`
       margin-right: 10px;
     }
   }
+
+  @media screen and (max-width: 1060px) {
+    margin-left: 20px;
+    width: 150px;
+  }
 `;
 
 export default SearchPriceStyled;

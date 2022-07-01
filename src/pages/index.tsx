@@ -2,10 +2,12 @@ import axios from 'axios';
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Header from '../components/Header/Header';
+import ProductCard from '../components/ProductCard/ProductCard';
 import SearchPrice from '../components/Search/SearchPrice';
+import { IProducts } from '../interfaces/IProducts';
 
-const Home: NextPage = ( products: any ) => {
-
+const Home: NextPage<IProducts> = ( { products } ) => {
+  console.log(products)
   return (
     <div >
       <Head>
@@ -20,10 +22,20 @@ const Home: NextPage = ( products: any ) => {
           <h1>Refine sua busca</h1>
           <SearchPrice />
         </div>
-
-        {products.products.items.map((product: any) => (
-          <h1 key={ product.id }>{ product.name }</h1>
-        ))}
+        <div>
+          <span>{ `${products.totalItems} produtos encontrados` }</span>
+          {products.items.map((product) => (
+            <ProductCard 
+              key={product.id}
+              name={product.name}
+              image={product.name}
+              price={product.price}
+              discount={product.discount}
+              priceMember={product.priceMember}
+              priceNonMember={product.priceNonMember}
+            />
+          ))}
+        </div>
       </main>
     </div>
   )
@@ -33,7 +45,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const response = await axios.get('https://wine-back-test.herokuapp.com/products?page=1&limit=12');
 
   const products = await response.data;
-  
+
   return {
     props: {
       products

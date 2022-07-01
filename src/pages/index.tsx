@@ -7,6 +7,8 @@ import SearchPrice from '../components/Search/SearchPrice';
 import Button from '../components/__UI/Button';
 import { IProducts } from '../interfaces/IProducts';
 import CatalogContainer from '../styles/CatalogContainer';
+import Main from '../styles/Main';
+import SearchContainer from '../styles/SearchContainer';
 
 const Home: NextPage<IProducts> = ( { products } ) => {
   return (
@@ -18,11 +20,11 @@ const Home: NextPage<IProducts> = ( { products } ) => {
       </Head>
 
       <Header />
-      <main>
-        <div>
+      <Main>
+        <SearchContainer>
           <h1>Refine sua busca</h1>
           <SearchPrice />
-        </div>
+        </SearchContainer>
         <CatalogContainer>
           <span>{ `${products.totalItems} produtos encontrados` }</span>
           {products.items.map((product) => (
@@ -39,7 +41,7 @@ const Home: NextPage<IProducts> = ( { products } ) => {
             </div>
           ))}
         </CatalogContainer>
-      </main>
+      </Main>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard/ProductCard';
 import SearchPrice from '../components/Search/SearchPrice';
 import Button from '../components/__UI/Button';
 import { IProducts } from '../interfaces/IProducts';
+import CatalogContainer from '../styles/CatalogContainer';
 
 const Home: NextPage<IProducts> = ( { products } ) => {
   return (
@@ -16,13 +17,13 @@ const Home: NextPage<IProducts> = ( { products } ) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <main>
-        <Header />
         <div>
           <h1>Refine sua busca</h1>
           <SearchPrice />
         </div>
-        <div>
+        <CatalogContainer>
           <span>{ `${products.totalItems} produtos encontrados` }</span>
           {products.items.map((product) => (
             <div key={product.id}>
@@ -37,7 +38,7 @@ const Home: NextPage<IProducts> = ( { products } ) => {
               <Button />
             </div>
           ))}
-        </div>
+        </CatalogContainer>
       </main>
     </div>
   )

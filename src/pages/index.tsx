@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Header from '../components/Header/Header';
 import ProductCard from '../components/ProductCard/ProductCard';
 import SearchPrice from '../components/Search/SearchPrice';
+import Button from '../components/__UI/Button';
 import { IProducts } from '../interfaces/IProducts';
 
 const Home: NextPage<IProducts> = ( { products } ) => {
@@ -24,15 +25,17 @@ const Home: NextPage<IProducts> = ( { products } ) => {
         <div>
           <span>{ `${products.totalItems} produtos encontrados` }</span>
           {products.items.map((product) => (
-            <ProductCard 
-              key={product.id}
+            <div key={product.id}>
+              <ProductCard
               name={product.name}
               image={product.image}
               price={product.price}
               discount={product.discount}
               priceMember={product.priceMember}
               priceNonMember={product.priceNonMember}
-            />
+              />
+              <Button />
+            </div>
           ))}
         </div>
       </main>

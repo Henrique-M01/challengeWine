@@ -14,7 +14,7 @@ export default function ProductCard({
   name, image, price, discount, priceMember, priceNonMember }: IProductCard) {
   return (
     <CardStyled>
-      {/* <Image src={image} alt='Imagem do produto' width={200} height={180}/> */}
+      <Image src={image} alt='Imagem do produto' width={200} height={180}/>
       <h1>{ name }</h1>
       <div>
         <span>{ `R$${price}` }</span>

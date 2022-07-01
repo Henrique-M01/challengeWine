@@ -1,13 +1,12 @@
 import axios from 'axios';
-import type { GetServerSideProps, NextPage } from 'next'
-import Head from 'next/head'
+import type { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import Header from '../components/Header/Header';
 import ProductCard from '../components/ProductCard/ProductCard';
 import SearchPrice from '../components/Search/SearchPrice';
 import { IProducts } from '../interfaces/IProducts';
 
 const Home: NextPage<IProducts> = ( { products } ) => {
-  console.log(products)
   return (
     <div >
       <Head>
@@ -28,7 +27,7 @@ const Home: NextPage<IProducts> = ( { products } ) => {
             <ProductCard 
               key={product.id}
               name={product.name}
-              image={product.name}
+              image={product.image}
               price={product.price}
               discount={product.discount}
               priceMember={product.priceMember}

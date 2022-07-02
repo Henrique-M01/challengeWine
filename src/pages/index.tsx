@@ -7,6 +7,7 @@ import SearchPrice from '../components/Search/SearchPrice';
 import Button from '../components/__UI/Button';
 import { IProducts } from '../interfaces/IProducts';
 import CatalogContainer from '../styles/CatalogContainer';
+import Divisor from '../styles/Divisor';
 import Main from '../styles/Main';
 import SearchContainer from '../styles/SearchContainer';
 import TotalItems from '../styles/TotalItems';
@@ -21,6 +22,7 @@ const Home: NextPage<IProducts> = ( { products } ) => {
       </Head>
 
       <Header />
+      <Divisor />
       <Main>
         <SearchContainer>
           <h4>Refine sua busca</h4>

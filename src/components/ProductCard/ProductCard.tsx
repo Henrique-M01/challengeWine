@@ -35,7 +35,10 @@ export default function ProductCard({
         </BigPrice>
       </div>
       <div>
-        <PriceNonMember>{ `NÃO SÓCIO R$ ${priceNonMember.toFixed(2).toString().replace('.', ',')}` }</PriceNonMember>
+        <PriceNonMember>
+          { `NÃO SÓCIO R$ ${priceNonMember
+            .toFixed(2).toString().replace('.', ',')}` }
+        </PriceNonMember>
       </div>
     </CardStyled>
   )

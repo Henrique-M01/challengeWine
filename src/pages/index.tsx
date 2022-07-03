@@ -1,10 +1,18 @@
 import axios from 'axios';
-import type { GetServerSideProps, NextPage } from 'next'
-import Head from 'next/head'
+import type { GetServerSideProps, NextPage } from 'next';
+import Head from 'next/head';
 import Header from '../components/Header/Header';
+import ProductCard from '../components/ProductCard/ProductCard';
+import SearchPrice from '../components/Search/SearchPrice';
+import Button from '../components/__UI/Button';
+import { IProducts } from '../interfaces/IProducts';
+import CatalogContainer from '../styles/CatalogContainer';
+import Divisor from '../styles/Divisor';
+import Main from '../styles/Main';
+import SearchContainer from '../styles/SearchContainer';
+import TotalItems from '../styles/TotalItems';
 
-const Home: NextPage = ( products: any ) => {
-
+const Home: NextPage<IProducts> = ( { products } ) => {
   return (
     <div >
       <Head>
@@ -13,13 +21,30 @@ const Home: NextPage = ( products: any ) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header />
-        <h1>Refine sua busca</h1>
-        {products.products.items.map((product: any) => (
-          <h1 key={ product.id }>{ product.name }</h1>
-        ))}
-      </main>
+      <Header />
+      <Divisor />
+      <Main>
+        <SearchContainer>
+          <h4>Refine sua busca</h4>
+          <SearchPrice />
+        </SearchContainer>
+        <TotalItems>{ `${products.totalItems} produtos encontrados` }</TotalItems>
+        <CatalogContainer>
+          {products.items.map((product) => (
+            <div key={product.id}>
+              <ProductCard
+              name={product.name}
+              image={product.image}
+              price={product.price}
+              discount={product.discount}
+              priceMember={product.priceMember}
+              priceNonMember={product.priceNonMember}
+              />
+              <Button />
+            </div>
+          ))}
+        </CatalogContainer>
+      </Main>
     </div>
   )
 }
@@ -28,7 +53,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const response = await axios.get('https://wine-back-test.herokuapp.com/products?page=1&limit=12');
 
   const products = await response.data;
-  
+
   return {
     props: {
       products

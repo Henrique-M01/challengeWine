@@ -1,9 +1,11 @@
+import Image from 'next/image';
+import LogosContainer from '../../styles/LogosContainer';
 import HeaderStyled from './HeaderStyled';
 
 export default function Header() {
   return (
     <HeaderStyled>
-      <span>WINE</span>
+      <Image src="/images/black.png" alt="Logo-pesquisa" width={95} height={30}/>
       <nav>
         <span>Clube</span>
         <span>Loja</span>
@@ -11,7 +13,11 @@ export default function Header() {
         <span>Ofertas</span>
         <span>Eventos</span>
       </nav>
-      <span>Icons de pesquisa e perfil</span>
+      <LogosContainer>
+        <Image src="/images/Busca.png" alt="Logo-pesquisa" width={60} height={60}/>
+        <Image src="/images/conta.png" alt="Logo-pesquisa" width={60} height={60}/>
+        <Image src="/images/Carrinho.png" alt="Logo-pesquisa" width={60} height={60}/>
+      </LogosContainer>
     </HeaderStyled>
   )
 }

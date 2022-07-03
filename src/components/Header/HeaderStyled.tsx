@@ -5,7 +5,14 @@ const HeaderStyled = styled.header`
   background-color: #FFFFFF;
   display: flex;
   justify-content: space-around;
-  padding-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+  font-family: 'Neo Sans Std';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 
   nav {
     display: flex;
